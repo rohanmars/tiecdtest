@@ -15,4 +15,4 @@ jobs:
         id: hello
         uses: dataaxiom/tiecd-deploy-action@main
         with:
-          tiecd_files: 'rohan.yml'
+          files: 'rohan.yml'
