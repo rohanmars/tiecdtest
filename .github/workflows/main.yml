@@ -13,5 +13,4 @@ jobs:
       - name: Deploy
         uses: dataaxiom/tiecd-deploy-action@main
         with:
-          apps: keycloak
           files: 'rohan.yml'
