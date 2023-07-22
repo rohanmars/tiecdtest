@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      - name: ls
-        run: ls -al
-      - name: pwd
-        run: eho `pwd`
       - name: Deploy
         id: hello
         uses: dataaxiom/tiecd-deploy-action@main
