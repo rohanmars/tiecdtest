@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to tiecd
     steps:
+      - name: ls
+        run: ls -al
       - name: pwd
-        run: echo `pwd`
+        run: eho `pwd`
       - name: Deploy
         id: hello
         uses: dataaxiom/tiecd-deploy-action@main
