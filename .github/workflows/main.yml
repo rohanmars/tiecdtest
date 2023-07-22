@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Deploy
         id: hello
-        uses: dataaxiom/tiecd-deploy-action
+        uses: dataaxiom/tiecd-deploy-action@v2
         with:
           who-to-greet: 'Mona the Octocat'
