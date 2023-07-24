@@ -1,0 +1,51 @@
+version: v1
+
+include: base.yml
+
+# this is comment
+
+proxy:
+   host: hello # this is coment
+   port: 9000
+   username:
+   password:
+
+registries:
+  image:
+  - name: "gitlabrepo"
+    url: "${CI_REGISTRY_IMAGE:hello}"
+    username: "${CI_REGISTRY_USER:rohan}"
+    password: "${CI_JOB_TOKEN}"
+  maven:
+  - name: "nexus"
+    url: "http://repo.xdrone.com:8080"
+    username:
+    password:
+
+platforms:
+- name: "prod"
+  apiType: "kubernetes"
+  apiProvider: "micro8ks"
+  apiUrl: "https://kari.giize.com:16443"
+  apiTlsVerify: false
+  apiToken: "${KUBETOKEN}"
+  apiConfigVariable: KUBECONFIG_FILE
+
+apps:
+
+- name: "namespaces"
+  spec:
+    templateFiles:
+    - "namespaces.yaml"
+
+- name: "monitoring"
+  spec:
+    helmCharts:
+    - repoName: "prometheus-community"
+      repoUrl: "https://prometheus-community.github.io/helm-charts"
+      chart: "prometheus-community/kube-prometheus-stack"
+      chartRelease: "prometheus-operator"
+      values:
+      - "monitoring/prometheus-operator.yaml"
+      namespace: "monitoring"
+
