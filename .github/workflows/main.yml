@@ -13,4 +13,4 @@ jobs:
       - name: Deploy
         uses: dataaxiom/tiecd-deploy-action@main
         with:
-          files: 'rohan.yml'
+          apps: 'monitoring'
